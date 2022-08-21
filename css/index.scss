@@ -1,0 +1,190 @@
+@import url(fonts/stylesheet.css);
+*{
+    padding: 0;
+    margin: 0;
+    outline: none;
+}
+a{text-decoration: none;}
+body{font-family: 'SF UI Text';}
+$grey: #ABB8C5;
+$black: #262626;
+$onhover: #E9E9E9;
+$main: #FFAE7F;
+$onclick: #FF833A;
+body{overflow: hidden;}
+.left{
+    width: calc(100vw / 3);
+    min-width: 350px;
+    & > div{margin-left: 40px;}
+    &__title{
+        margin-top: 92px;
+        min-width: 350px;
+        div{
+            display: flex;
+            &:first-child{
+                p{
+                    color: $black;
+                    font-weight: 500;
+                    font-size: 48px;
+                    margin-right: 10px;
+                }
+                object{height: 70px;}
+            }
+            &:last-child{
+                color: $grey;
+                font-size: 24px;
+                font-weight: 500;
+                margin-top: 20px;
+            }
+        }
+    }
+    &__form{
+        min-width: 350px;
+        margin-top: 30px;
+        input[type=text], input[type=password]{
+            display: block;
+            height: 72px;
+            background: #fff;
+            border: 2px solid #ABB8C5;
+            border-radius: 15px;
+            font-size: 24px;
+            padding-left: 30px;
+            color: $grey;
+            font-family: 'SF UI Text';
+            padding-right: calc(5% + 30px);
+            &::placeholder{color: $grey;}
+            &:focus{
+                border-color: $main;
+                color: $main;
+            }
+        }
+        .form__password{width: 100%;}
+        .form__login{
+            width: calc(100% - 80px);
+            margin-bottom: 35px;
+            background: url(/icons/email.svg) no-repeat !important;
+            background-position: 95% 22.5px !important;
+        }
+        .left__password-form{
+            width: calc(100% - 80px);
+            height: 72px;
+            position: relative;
+            div{
+                position: absolute;
+                top: 22.5px;
+                right: 0;
+                margin-right: 5%;
+                width: 32px;
+                height: 32px;
+                z-index: 100;
+                cursor: pointer;
+                object{pointer-events: none;}
+            }
+        }
+        button{
+            display: block;
+            width: calc(100% - 80px);
+            height: 72px;
+            border-radius: 15px;
+            border: none;
+            margin-top: 35px;
+            font-family: 'SF UI Text';
+            font-size: 24px;
+            background: #fff;
+            cursor: pointer;
+            &.left__form-singin,&.left__form-singup{
+                background: $main !important;
+                color: #fff !important;
+                &:active{background: $onclick !important;}
+            }
+            &.left__form-create,&.left__back-to-login{
+                background: #fff !important;
+                border: 2px solid $grey !important;
+                &:active{border-color: $main !important;}
+            }
+        }
+        &-info{
+            width: calc(100% - 80px);
+            height: 100px;
+            margin-bottom: 35px;
+            color: #fff;
+            background: #F26868;
+            border-radius: 15px;
+            line-height: 100px;
+            font-weight: 300;
+            p{
+                font-size: 20px;
+                width: calc(100% - 40px);
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+        .singup-form{
+            display: none;
+            .form__username,.form__phone-login{width: calc(100% - 80px);}
+            input,.left__password-form{margin-bottom: 20px;}
+            .form__phone-login,.form__username{margin-bottom: 35px;}
+            .form__phone-login{
+                background: url(/icons/phone.svg) no-repeat !important;
+                 background-position: 95% 21px !important;
+            }
+            .form__username{
+                background: url(/icons/username.svg) no-repeat !important; 
+                background-position: 95% 21px !important;
+            }
+        }
+    }
+}
+.right{
+    width: calc((100vw / 3) * 2);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: $main;
+    &__circle-lines{
+        position: absolute;
+        left: 253px;
+        top: 240px;
+        object{
+            width: 43vw;
+        }
+    }
+    &__line{
+        position: absolute;
+        left: 150px;
+        top: 5px;
+    }
+    &__big-text{
+        width: 53vw;
+        position: absolute;
+        z-index: 2;
+        left: 135px;
+        top: 57px;
+        font-family: 'Gothic A1', sans-serif;
+        font-weight: 700;
+        font-size: 128px;
+        color: $black;
+    }
+    &__text{
+        font-weight: 100;
+        font-size: 48px;
+        color: #A95B2E;
+        font-family: Noto-Sans;
+        position: absolute;
+        top: 415px;
+        left: 395px;
+    }
+}
+@media screen and (max-width: 1690px){ 
+    .left{
+        &__title{margin-top: 30px;}
+    }
+}
+@media screen and (max-width: 1080px){
+    body{overflow-y: auto;}
+    .left{
+        width: 100vw;
+    }
+    .right{display: none;}
+}

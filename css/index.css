@@ -1,0 +1,225 @@
+@import url(fonts/stylesheet.css);
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "SF UI Text";
+}
+
+body {
+  overflow: hidden;
+}
+
+.left {
+  width: 33.3333333333vw;
+  min-width: 350px;
+}
+.left > div {
+  margin-left: 40px;
+}
+.left__title {
+  margin-top: 92px;
+  min-width: 350px;
+}
+.left__title div {
+  display: flex;
+}
+.left__title div:first-child p {
+  color: #262626;
+  font-weight: 500;
+  font-size: 48px;
+  margin-right: 10px;
+}
+.left__title div:first-child object {
+  height: 70px;
+}
+.left__title div:last-child {
+  color: #ABB8C5;
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+.left__form {
+  min-width: 350px;
+  margin-top: 30px;
+}
+.left__form input[type=text], .left__form input[type=password] {
+  display: block;
+  height: 72px;
+  background: #fff;
+  border: 2px solid #ABB8C5;
+  border-radius: 15px;
+  font-size: 24px;
+  padding-left: 30px;
+  color: #ABB8C5;
+  font-family: "SF UI Text";
+  padding-right: calc(5% + 30px);
+}
+.left__form input[type=text]::-moz-placeholder, .left__form input[type=password]::-moz-placeholder {
+  color: #ABB8C5;
+}
+.left__form input[type=text]:-ms-input-placeholder, .left__form input[type=password]:-ms-input-placeholder {
+  color: #ABB8C5;
+}
+.left__form input[type=text]::placeholder, .left__form input[type=password]::placeholder {
+  color: #ABB8C5;
+}
+.left__form input[type=text]:focus, .left__form input[type=password]:focus {
+  border-color: #FFAE7F;
+  color: #FFAE7F;
+}
+.left__form .form__password {
+  width: 100%;
+}
+.left__form .form__login {
+  width: calc(100% - 80px);
+  margin-bottom: 35px;
+  background: url(/icons/email.svg) no-repeat !important;
+  background-position: 95% 22.5px !important;
+}
+.left__form .left__password-form {
+  width: calc(100% - 80px);
+  height: 72px;
+  position: relative;
+}
+.left__form .left__password-form div {
+  position: absolute;
+  top: 22.5px;
+  right: 0;
+  margin-right: 5%;
+  width: 32px;
+  height: 32px;
+  z-index: 100;
+  cursor: pointer;
+}
+.left__form .left__password-form div object {
+  pointer-events: none;
+}
+.left__form button {
+  display: block;
+  width: calc(100% - 80px);
+  height: 72px;
+  border-radius: 15px;
+  border: none;
+  margin-top: 35px;
+  font-family: "SF UI Text";
+  font-size: 24px;
+  background: #fff;
+  cursor: pointer;
+}
+.left__form button.left__form-singin, .left__form button.left__form-singup {
+  background: #FFAE7F !important;
+  color: #fff !important;
+}
+.left__form button.left__form-singin:active, .left__form button.left__form-singup:active {
+  background: #FF833A !important;
+}
+.left__form button.left__form-create, .left__form button.left__back-to-login {
+  background: #fff !important;
+  border: 2px solid #ABB8C5 !important;
+}
+.left__form button.left__form-create:active, .left__form button.left__back-to-login:active {
+  border-color: #FFAE7F !important;
+}
+.left__form-info {
+  width: calc(100% - 80px);
+  height: 100px;
+  margin-bottom: 35px;
+  color: #fff;
+  background: #F26868;
+  border-radius: 15px;
+  line-height: 100px;
+  font-weight: 300;
+}
+.left__form-info p {
+  font-size: 20px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  text-align: center;
+}
+.left__form .singup-form {
+  display: none;
+}
+.left__form .singup-form .form__username, .left__form .singup-form .form__phone-login {
+  width: calc(100% - 80px);
+}
+.left__form .singup-form input, .left__form .singup-form .left__password-form {
+  margin-bottom: 20px;
+}
+.left__form .singup-form .form__phone-login, .left__form .singup-form .form__username {
+  margin-bottom: 35px;
+}
+.left__form .singup-form .form__phone-login {
+  background: url(/icons/phone.svg) no-repeat !important;
+  background-position: 95% 21px !important;
+}
+.left__form .singup-form .form__username {
+  background: url(/icons/username.svg) no-repeat !important;
+  background-position: 95% 21px !important;
+}
+
+.right {
+  width: 66.6666666667vw;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #FFAE7F;
+}
+.right__circle-lines {
+  position: absolute;
+  left: 253px;
+  top: 240px;
+}
+.right__circle-lines object {
+  width: 43vw;
+}
+.right__line {
+  position: absolute;
+  left: 150px;
+  top: 5px;
+}
+.right__big-text {
+  width: 53vw;
+  position: absolute;
+  z-index: 2;
+  left: 135px;
+  top: 57px;
+  font-family: "Gothic A1", sans-serif;
+  font-weight: 700;
+  font-size: 128px;
+  color: #262626;
+}
+.right__text {
+  font-weight: 100;
+  font-size: 48px;
+  color: #A95B2E;
+  font-family: Noto-Sans;
+  position: absolute;
+  top: 415px;
+  left: 395px;
+}
+
+@media screen and (max-width: 1690px) {
+  .left__title {
+    margin-top: 30px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  body {
+    overflow-y: auto;
+  }
+  .left {
+    width: 100vw;
+  }
+  .right {
+    display: none;
+  }
+}

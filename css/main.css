@@ -1,0 +1,717 @@
+@import url(fonts/stylesheet.css);
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow: hidden;
+  font-family: "SF UI Text";
+}
+
+li {
+  list-style: none;
+}
+
+.header {
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  box-shadow: 4px 1px 8px 0px rgba(34, 60, 80, 0.2);
+  top: 0;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  z-index: 2;
+}
+.header svg {
+  width: 30px !important;
+  height: 30px !important;
+}
+.header svg path {
+  fill: #ABB8C5 !important;
+}
+.header > div {
+  height: 70px;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+.header__logo object {
+  height: 50px;
+  pointer-events: none;
+}
+.header__new-entry {
+  margin-left: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  height: 40px !important;
+  background: #FFAE7F;
+  color: #fff;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.header__new-entry:active {
+  background: #FF833A;
+}
+.header__new-entry div span {
+  display: block;
+  background: #fff;
+  width: 16px;
+  height: 2px;
+}
+.header__new-entry div span:last-child {
+  transform: rotate(90deg);
+  margin-top: -2px;
+}
+.header__new-entry p {
+  margin-left: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+.header__search, .header__settings {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  position: absolute;
+  cursor: pointer;
+}
+.header__search svg, .header__settings svg {
+  transition: 0.2s ease-in-out;
+}
+.header__search:hover svg, .header__settings:hover svg {
+  transform: scale(1.03);
+}
+.header__search {
+  right: 215px;
+}
+.header__search.clicked {
+  right: 380px;
+}
+.header__search.clicked .header__search-input {
+  display: block !important;
+}
+.header__search-input {
+  display: none;
+  margin-right: 30px;
+}
+.header__search-input input {
+  height: 40px;
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid #ABB8C5;
+  padding-left: 40px;
+  background: url(/icons/search.svg) no-repeat;
+  background-position: 10px 10px;
+  font-family: "SF UI Text";
+}
+.header__search-input input::-moz-placeholder {
+  font-family: "SF UI Text";
+}
+.header__search-input input:-ms-input-placeholder {
+  font-family: "SF UI Text";
+}
+.header__search-input input::placeholder {
+  font-family: "SF UI Text";
+}
+.header__search-input input:focus {
+  border-color: #FFAE7F;
+  color: #FFAE7F;
+}
+.header__search-results {
+  display: none;
+  position: absolute;
+  top: 70px;
+  width: 300px;
+  min-height: 50px;
+  height: auto;
+  background: #fff;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  margin-left: -60px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.header__search-results li {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: wrap;
+  width: calc(100% - 30px);
+  padding: 15px;
+  height: 40px;
+}
+.header__search-results li:hover {
+  background: #E9E9E9;
+}
+.header__search-results li:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.header__settings {
+  right: 145px;
+}
+.header__profile {
+  position: absolute;
+  right: 35px;
+  align-items: center;
+  display: flex;
+}
+.header__profile img {
+  height: 50px;
+  border-radius: 100%;
+}
+.header__profile p {
+  margin-left: 15px;
+  cursor: pointer;
+}
+.header__profile p:hover {
+  color: #FF833A;
+}
+.header__profile ul {
+  background: #fff;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  margin-top: -351.5px;
+  width: 200px;
+  height: 81.5px;
+  position: absolute;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
+}
+.header__profile ul.clicked {
+  margin-top: 151.5px;
+}
+.header__profile ul li {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 18px;
+}
+.header__profile ul li:hover {
+  background: #E9E9E9;
+}
+.header__profile ul li:last-child {
+  border-bottom-left-radius: 15px;
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  overflow: hidden;
+  top: 70px;
+  height: 100%;
+  width: 100%;
+}
+.content .menu {
+  width: 70px;
+  height: 100%;
+  overflow: hidden;
+  background: #f7f7f7;
+  border-right: 1px solid #e1e1e1;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+.content .menu.hovered {
+  width: 300px;
+}
+.content .menu__item {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #262626;
+  align-items: center;
+}
+.content .menu__item:first-child {
+  margin-top: 50px;
+}
+.content .menu__item:hover {
+  background: #E9E9E9;
+}
+.content .menu__item.clicked {
+  color: #FFAE7F;
+}
+.content .menu__item.clicked svg {
+  fill: #FFAE7F;
+}
+.content .menu__item-name {
+  font-size: 26px;
+  margin-left: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.content .menu__item-ico {
+  margin-left: 20px;
+}
+.content .menu__item-ico svg {
+  fill: #262626;
+  height: 30px;
+  width: 30px;
+}
+.content .align-column {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.content .align-column > div {
+  margin-inline: auto;
+}
+.content .align-column .add {
+  margin-top: 50px;
+  width: 1550px;
+  display: none;
+}
+.content .align-column .add input, .content .align-column .add button, .content .align-column .add textarea {
+  display: block;
+}
+.content .align-column .add input, .content .align-column .add textarea {
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid #ABB8C5;
+  font-size: 24px;
+  padding: 0 35px;
+  color: #ABB8C5;
+  transition: 0.2s ease-in-out;
+}
+.content .align-column .add input:focus, .content .align-column .add textarea:focus {
+  border-color: #FFAE7F;
+  color: #FFAE7F;
+}
+.content .align-column .add input::-moz-placeholder, .content .align-column .add textarea::-moz-placeholder {
+  font-family: "SF UI Text";
+}
+.content .align-column .add input:-ms-input-placeholder, .content .align-column .add textarea:-ms-input-placeholder {
+  font-family: "SF UI Text";
+}
+.content .align-column .add input::placeholder, .content .align-column .add textarea::placeholder {
+  font-family: "SF UI Text";
+}
+.content .align-column .add input {
+  height: 100px;
+  margin-top: 30px;
+}
+.content .align-column .add textarea {
+  padding-top: 24px;
+  margin-top: 30px;
+  height: 400px;
+  resize: none;
+}
+.content .align-column .add button {
+  margin-top: 30px;
+  width: 100%;
+  border-radius: 15px;
+  height: 50px;
+  border: none;
+  background: #FFAE7F;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+.content .align-column .add button:active {
+  background: #FF833A;
+}
+.content .align-column .add__status {
+  width: 100%;
+  height: 0;
+  background: #00aa00;
+  margin-top: 30px;
+  border-radius: 15px;
+  color: #fff;
+  transition: 0.2s ease-in-out;
+  font-size: 24px;
+  text-align: center;
+  line-height: 100px;
+  font-weight: 600;
+}
+.content .align-column .add__status.show {
+  height: 100px;
+}
+.content .align-column .add__attachment {
+  margin-top: 30px;
+  cursor: pointer;
+}
+.content .align-column .add__attachment label {
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+.content .align-column .add__attachment label object {
+  pointer-events: none;
+}
+.content .align-column .add__attachment label:hover object {
+  fill: #FFAE7F !important;
+}
+.content .align-column .add__attachment .attachments {
+  width: 100%;
+  height: 0;
+  display: block;
+  transition: 0.2s ease-in-out;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.content .align-column .add__attachment .attachments div {
+  max-width: 200px;
+  display: block;
+  height: 100px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.content .align-column .add__attachment .attachments div img {
+  max-width: 200px;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid #FFAE7F;
+}
+.content .align-column .add__attachment .attachments div:hover .close {
+  display: block;
+}
+.content .align-column .add__attachment .attachments div .close {
+  position: absolute;
+  display: none;
+  z-index: 100;
+  width: 30px;
+  height: 30px;
+  right: -5px;
+  top: 5px;
+}
+.content .align-column .add__attachment .attachments div .close:hover span {
+  background: #FFAE7F;
+}
+.content .align-column .add__attachment .attachments div .close span {
+  margin: 10px 0;
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: #000;
+}
+.content .align-column .add__attachment .attachments div .close span:first-child {
+  transform: rotate(-45deg);
+}
+.content .align-column .add__attachment .attachments div .close span:last-child {
+  transform: rotate(45deg);
+  margin-top: -13px;
+}
+.content .align-column .add__attachment .attachments.filled {
+  height: auto;
+}
+.content .align-column .add__attachment input {
+  display: none;
+}
+.content .align-column .nav-back {
+  display: flex;
+  align-items: center;
+  color: #ABB8C5;
+  cursor: pointer;
+  font-size: 24px;
+}
+.content .align-column .nav-back object {
+  pointer-events: none;
+}
+.content .align-column .nav-back p {
+  margin-left: 5px;
+}
+.content .align-column .calendar {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 1550px;
+}
+.content .align-column .calendar__today p {
+  font-size: 48px;
+  font-weight: 600;
+}
+.content .align-column .calendar__table {
+  margin-top: 30px;
+  width: 100%;
+}
+.content .align-column .calendar__table table {
+  border-collapse: collapse;
+}
+.content .align-column .calendar__table table tr td {
+  width: 200px;
+  height: 150px;
+  padding-left: 20px;
+  text-align: left;
+  border: 1px solid #ABB8C5;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+.content .align-column .calendar__table table tr td.noted {
+  color: #FFAE7F;
+}
+.content .align-column .calendar__table table tr td:hover {
+  background: #E9E9E9;
+}
+.content .align-column .calendar__table table tr td p:first-child {
+  font-size: 36px;
+}
+.content .align-column .calendar__table table tr td p:last-child {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+.content .align-column .note {
+  width: 1550px;
+  margin-top: 50px;
+  display: none;
+}
+.content .align-column .note__nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.content .align-column .note__nav.scroll {
+  position: fixed;
+  background: #fff;
+  height: 50px;
+  top: 70px;
+  width: calc(100% - 160px);
+}
+.content .align-column .note__nav .nav-edit {
+  height: 40px;
+  width: 340px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 0;
+}
+.content .align-column .note__nav .nav-edit button {
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: #FFAE7F;
+  color: #fff;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+.content .align-column .note__nav .nav-edit button:active {
+  background: #FF833A;
+}
+.content .align-column .note__nav .nav-edit button.processing {
+  background: #FF833A;
+}
+.content .align-column .note__nav .nav-edit button:last-child {
+  margin-left: 20px;
+  background: #fa6262;
+  transition: 0.2s ease-in-out;
+}
+.content .align-column .note__nav .nav-edit button:last-child:hover {
+  background: #772c2c;
+}
+.content .align-column .note__title {
+  margin-top: 20px;
+}
+.content .align-column .note__title p:first-child {
+  font-size: 48px;
+  font-weight: 700;
+  color: #262626;
+}
+.content .align-column .note__title p:last-child {
+  color: #FFD8C1;
+  margin-top: 10px;
+  font-size: 28px;
+  font-weight: 600;
+}
+.content .align-column .note__edit-status {
+  background: #00aa00;
+  color: #fff;
+  font-size: 24px;
+  width: 100%;
+  height: 0;
+  transition: 0.2s ease-in-out;
+  border-radius: 15px;
+  text-align: center;
+  line-height: 80px;
+}
+.content .align-column .note__edit-status.showed {
+  height: 80px;
+}
+.content .align-column .note__edit-status.error {
+  background: #bd3e3e;
+}
+.content .align-column .note__text {
+  width: 100%;
+  margin-top: 20px;
+  line-height: 150%;
+  font-weight: 400;
+}
+.content .align-column .note__text p {
+  width: 100%;
+  font-size: 24px;
+  overflow: hidden;
+  word-wrap: break-word;
+  line-height: 200%;
+}
+.content .align-column .note__text textarea {
+  width: 100%;
+  display: none;
+  resize: none;
+  background: #fff;
+  border: 1px solid #ABB8C5;
+  border-radius: 15px;
+  font-family: "SF UI Text";
+  font-size: 24px;
+  padding: 15px;
+  min-height: 200px;
+  height: auto;
+  transition: 0.2s ease-in-out;
+}
+.content .align-column .note__text textarea:focus {
+  border-color: #FF833A;
+  color: #FF833A;
+}
+.content .align-column .note__buttons {
+  margin-top: 20px;
+}
+.content .align-column .note__buttons button {
+  width: 300px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 15px;
+  font-size: 20px;
+}
+.content .align-column .note__buttons button:first-child {
+  border: none;
+  background: #FFAE7F;
+  color: #fff;
+  margin-right: 20px;
+}
+.content .align-column .note__buttons button:first-child:active {
+  background: #FF833A;
+}
+.content .align-column .note__buttons button:last-child {
+  border: none;
+  color: #FFAE7F;
+}
+.content .align-column .entry-list {
+  width: 1550px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+.content .align-column .entry-list .entry {
+  width: 367px;
+  height: 250px;
+  margin-right: 20px;
+  margin-top: 50px;
+}
+.content .align-column .entry-list .entry__preview {
+  width: 100%;
+  height: 150px;
+  border-radius: 15px;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  cursor: pointer;
+}
+.content .align-column .entry-list .entry__preview p {
+  font-size: 24px;
+  padding: 30px;
+  max-width: calc(100% - 60px);
+  max-height: 60px;
+  overflow: hidden;
+  white-space: wrap;
+  text-overflow: ellipsis;
+}
+.content .align-column .entry-list .entry__name, .content .align-column .entry-list .entry__date {
+  text-align: center;
+}
+.content .align-column .entry-list .entry__name {
+  margin-top: 15px;
+  font-size: 24px;
+  color: #262626;
+  font-weight: 500;
+}
+.content .align-column .entry-list .entry__date {
+  font-size: 18px;
+  margin-top: 5px;
+  color: #ABB8C5;
+}
+
+@media screen and (max-width: 1690px) {
+  .content .align-column .add, .content .align-column .note, .content .align-column .entry-list, .content .align-column .calendar {
+    width: 1080px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .header__new-entry {
+    width: 70px;
+  }
+  .header__new-entry p {
+    font-size: 14px;
+  }
+  .header__search-input input {
+    width: 150px;
+  }
+  .content .align-column .add, .content .align-column .note, .content .align-column .entry-list, .content .align-column .calendar {
+    width: calc(100vw - 180px);
+  }
+  .content .align-column .calendar__today p {
+    font-size: 36px;
+  }
+  .content .align-column .calendar__table table {
+    margin-inline: auto;
+  }
+  .content .align-column .calendar__table table tr td {
+    width: 50px;
+    height: 50px;
+    padding-left: 10px;
+    border: none;
+    font-weight: 600;
+  }
+  .content .align-column .calendar__table table tr td p:first-child {
+    font-size: 18px;
+  }
+  .content .align-column .calendar__table table tr td p:last-child {
+    display: none;
+  }
+  .content .align-column .note__nav .nav-edit {
+    width: 120px;
+  }
+  .content .align-column .note__nav .nav-edit button {
+    font-size: 14px;
+  }
+  .content .align-column .note__nav .nav-edit button:last-child {
+    margin-left: 10px;
+  }
+  .content .align-column .note__nav .nav-back object {
+    width: 24px;
+  }
+  .content .align-column .note__nav .nav-back p {
+    font-size: 14px;
+  }
+  .content .align-column .entry-list .entry {
+    width: 100%;
+  }
+  .content .align-column .note__buttons button {
+    width: calc(50% - 15px);
+  }
+}
